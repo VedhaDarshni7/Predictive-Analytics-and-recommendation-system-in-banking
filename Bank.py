@@ -46,7 +46,8 @@ with open("knn_pro.pkl","rb") as f:
 
 
 #LOAD THE DATASET
-df=pd.read_csv("C:\My Setups\Bank Recommendation\dataset_revised1.csv")
+df = pd.read_csv(r"/Users/ayushii/Desktop/Predictive analysis/dataset_revised1.csv")
+
 
 
 
@@ -147,7 +148,7 @@ def get_base64_of_bin_file(bin_file):
         with open(bin_file, 'rb') as f:
             data = f.read()
         return base64.b64encode(data).decode()
-background_image_path = r'C:\My Setups\Bank Recommendation\loan4.png'
+background_image_path = r"/Users/ayushii/Desktop/Predictive analysis/loan4.png.jpg"
 base64_image = get_base64_of_bin_file(background_image_path)
 page_bg_img = f"""
 <style>
@@ -170,6 +171,7 @@ if selected=="LOAN DEFAULT PREDICTION":
     col1,col2,col3=st.columns([1,2,1])
 
     with col2:
+    
         age=st.number_input("Age",min_value=18,max_value=80,value=25)
         monthly_income=st.number_input("Monthly Income",min_value=10000,max_value=500000,value=15000)
         credit_score=st.number_input("Credit Score",min_value=300,max_value=900,value=350)
@@ -184,6 +186,7 @@ if selected=="LOAN DEFAULT PREDICTION":
 
         if st.button("Predict"):
             input_data=pd.DataFrame({
+        
                 "Age":[age],
                 "Monthly_Income":[monthly_income],
                 "Credit_Score":[credit_score],
@@ -223,6 +226,7 @@ if selected=="CUSTOMER SEGMENTATION":
 
     with col2:
         # st.subheader("CUSTOMER SEGMENTATION")
+        
         try:
             transaction_amount = float(st.text_input("Transaction Amount", "1.0"))
             transaction_frequency = float(st.text_input("Transaction Frequency", "1.0"))
